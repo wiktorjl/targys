@@ -4,8 +4,6 @@ services:
     build: .
     volumes:
       - .:/targys
-        #ports:
-        #- "8000:80"
     environment:
       - NAME=World
     stdin_open: true
