@@ -10,7 +10,8 @@ from model.SignalGenerator import SignalGenerator
 from model.TradingModel import TradingModel 
 from model.TradeTrigger import TradeTriggers
 from model.TradeSelection import TradeSelection
-
+from model.ModelEvaluator import ModelEvaluator
+from model.visualizer.SimplePlotTradeVisualizer import plot_trades
     
 import pandas as pd
 import numpy as np
@@ -56,30 +57,32 @@ def load_symbol_for_dataset(name, symbol):
 if __name__ == "__main__":        
     load_dotenv()
     
+    # Download data
     get_dataset_data("dataset1")
     
+    # Load data
     data_dict = {symbol: load_symbol_for_dataset("dataset1", symbol) for symbol in find_dataset_definition("dataset1")["symbols"]}
 
-
+    # Generate signals
     signal_generator = SignalGenerator(data_dict)
     signals_dict = signal_generator.generate_signals()
+    
+    # Process signals
     trading_model = TradingModel(signals_dict)
     processed_signals_dict = trading_model.process_signals()
+    
+    # Evaluate triggers
     trade_triggers = TradeTriggers(processed_signals_dict)
     trades_dict = trade_triggers.evaluate_triggers()
+    
+    # Select trades
     trade_selection = TradeSelection(trades_dict)
     selected_trades_dict = trade_selection.select_trades()
 
-    for ticker, selected_trades in selected_trades_dict.items():
-        print(f"Selected trades for {ticker}:")
-        print(selected_trades)
+    # Visualize trades
+    plot_trades(data_dict, selected_trades_dict)
 
-    from model.visualizer.SimplePlotTradeVisualizer import plot_trades
-    from model.ModelEvaluator import ModelEvaluator
-
-    # plot_trades(data_dict, selected_trades_dict)
-
-
+    # Evaluate model
     evaluator = ModelEvaluator(data_dict, selected_trades_dict)
     evaluator.compute_metrics()
     evaluator.output_to_console()
