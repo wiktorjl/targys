@@ -15,7 +15,7 @@ class App:
     def handle_live_data(self, data):
         # using data.name to preserve the date index
         self.df.loc[data.name] = data
-        # calculate SMA-50
+        # calculate SMA-50 for incomming events
         print("SMA-50: ", self.df['Close'].rolling(window=50).mean().iloc[-1])
         
     def run(self):

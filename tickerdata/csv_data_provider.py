@@ -15,6 +15,8 @@ class CsvDataProvider:
     
     def subscribe_to_live_data(self, event_handler):
         pub.subscribe(event_handler, 'live.tick')
+
+        # Simulate streaming by sending data in a loop for csv file provider
         for index, row in self.df.iterrows():
             if self.stream_start_time and index >= self.stream_start_time:
                 pub.sendMessage('live.tick', data=row)
