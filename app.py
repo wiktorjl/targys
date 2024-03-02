@@ -73,3 +73,14 @@ if __name__ == "__main__":
     for ticker, selected_trades in selected_trades_dict.items():
         print(f"Selected trades for {ticker}:")
         print(selected_trades)
+
+    from model.visualizer.SimplePlotTradeVisualizer import plot_trades
+    from model.ModelEvaluator import ModelEvaluator
+
+    # plot_trades(data_dict, selected_trades_dict)
+
+
+    evaluator = ModelEvaluator(data_dict, selected_trades_dict)
+    evaluator.compute_metrics()
+    evaluator.output_to_console()
+    evaluator.output_to_html('data/visualizer/model_evaluation.html')
