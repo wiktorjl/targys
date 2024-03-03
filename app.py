@@ -58,10 +58,10 @@ if __name__ == "__main__":
     load_dotenv()
     
     # Download data
-    get_dataset_data("dataset1")
+    get_dataset_data("dataset2")
     
     # Load data
-    data_dict = {symbol: load_symbol_for_dataset("dataset1", symbol) for symbol in find_dataset_definition("dataset1")["symbols"]}
+    data_dict = {symbol: load_symbol_for_dataset("dataset2", symbol) for symbol in find_dataset_definition("dataset2")["symbols"]}
 
     # Generate signals
     signal_generator = SignalGenerator(data_dict)
