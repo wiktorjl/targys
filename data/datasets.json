@@ -1,0 +1,9 @@
+[
+    { 
+        "name": "dataset1",
+        "type": "eod",
+        "start_date": "2024-01-01",
+        "period": "d",
+        "symbols": ["AAPL", "GOOGL", "MSFT", "AMZN", "FB"]
+    }
+]
