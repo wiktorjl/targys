@@ -1,2 +1,8 @@
 python_dotenv
 eod
+backtesting 
+pandas 
+pandas_datareader 
+matplotlib 
+jinja2 
+setuptools
