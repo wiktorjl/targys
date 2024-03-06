@@ -62,41 +62,6 @@ idx = 0
 highest_return = None
 highest_return_ticker = None
 
-# for ticker in tickers:
-#     start_time = time.time()
-
-#     csv_data = ''
-#     with open('data/combined.csv', 'r') as file:
-#         csv_data = file.read()
-
-#     data = pd.read_csv(StringIO(csv_data))
-#     data = data[data['Code'] == ticker]
-#     data = data[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
-#     data = data.set_index('Date')
-#     data.index = pd.to_datetime(data.index)
-#     data = data.sort_index(ascending=True)
-
-#     bt = Backtest(data, MovingAverageStrategy, commission=.002, exclusive_orders=True)
-#     stats = bt.run()
-#     stats.to_csv(f'data/stats/{ticker}.csv', index=True)
-#     stats.head()
-#     # get value "Return [%]" from stats
-#     return_value = stats['Return [%]']
-
-#     if highest_return is None or return_value > highest_return:
-#         highest_return = return_value
-#         highest_return_ticker = ticker
-#         print(f"New highest return: {highest_return} for {highest_return_ticker}")
-
-#     # print(f"Return for {ticker}: {return_value}")
-
-#     end_time = time.time()
-#     execution_time = end_time - start_time
-#     print(f"[{idx}/{len(sp500)}] Backtest for {ticker} completed in {execution_time} seconds.")
-#     idx += 1
-
-# print(f"Highest return: {highest_return} for {highest_return_ticker}")
-
 
 def task(ticker, data):
     global highest_return
