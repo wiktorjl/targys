@@ -1,8 +1,10 @@
 python_dotenv
 eod
+eodhd
 backtesting 
 pandas 
 pandas_datareader 
 matplotlib 
 jinja2 
 setuptools
+yfinance
