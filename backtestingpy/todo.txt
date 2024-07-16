@@ -1,0 +1,18 @@
+
+
+
+1. pull latest data
+2. 52 week highs
+3. Crosses over 150 day moving average
+
+
+
+
+New Yearly highs
+    Buy at 250 day high
+    Sell at 250 day low
+
+
+Come up with an indicator
+    the more in the money we are
+        the less downside risk we accept

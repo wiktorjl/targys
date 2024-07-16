@@ -1,4 +1,11 @@
 python_dotenv
 eod
 pypubsub
-pandas
+eodhd
+backtesting 
+pandas 
+pandas_datareader 
+matplotlib 
+jinja2 
+setuptools
+yfinance
